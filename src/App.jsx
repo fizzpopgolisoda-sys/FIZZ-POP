@@ -182,7 +182,7 @@ function App() {
         <div className="container nav-container">
           <a href="#hero" className="logo">
             {/* <img src="assets/images/favicon.png" alt="FIZZPOP LOGO" className="nav-logo-img" /> */}
-            <img src="assets/images/FizzPop LOGO Black.png" alt="FIZZPOP LOGO" className="brand-img-nav" />
+            <img src="assets/images/FizzPop%20LOGO%20Black.png" alt="FIZZPOP LOGO" className="brand-img-nav" />
           </a>
           <nav className="nav-links">
             <a href="#hero">Home</a>
@@ -225,7 +225,7 @@ function App() {
           <div className="hero-bg-texture"></div>
           <div className="hero-interactive-container">
             <div className="interactive-image-wrapper" id="interactiveImage">
-              <img src="assets/images/hero image.png" alt="FIZZ POP Goli Soda - The Best Indian Banta Brand" className="pressure-image" />
+              <img src="/assets/images/hero image.png" alt="FIZZ POP Goli Soda - The Best Indian Banta Brand" className="pressure-image" />
               <div className="pressure-overlay" id="pressureOverlay"></div>
             </div>
           </div>
