@@ -308,7 +308,7 @@ function App() {
               <div className="flavour-item" itemProp="itemListElement" itemScope itemType="https://schema.org/Product">
                 <div className="flavour-visual">
                   <div className="liquid-splash lime-splash"></div>
-                  <img src="assets/images/lemon masala + char png.png" alt="FIZZ POP Masala Lemon Soda - Authentic Indian Banta Soda Bottle" className="bottle-img" loading="lazy" itemProp="image" />
+                  <img src="assets/images/lemon masala char png.png" alt="FIZZ POP Masala Lemon Soda - Authentic Indian Banta Soda Bottle" className="bottle-img" loading="lazy" itemProp="image" />
                 </div>
                 <div className="flavour-info">
                   {/* <span className="flavour-tag tagline-lemon">The Crowd Puller</span> */}
@@ -324,7 +324,7 @@ function App() {
                 <div className="flavour-visual">
                   <span className="badge badge-guava">Must Try</span>
                   <div className="liquid-splash pink-splash"></div>
-                  <img src="assets/images/watermelon + char png.png" alt="FIZZ POP Watermelon Soda - Refreshing Summer Fizzy Drink" className="bottle-img" loading="lazy" itemProp="image" />
+                  <img src="assets/images/watermelon char png.png" alt="FIZZ POP Watermelon Soda - Refreshing Summer Fizzy Drink" className="bottle-img" loading="lazy" itemProp="image" />
                 </div>
                 <div className="flavour-info">
                   {/* <span className="flavour-tag tagline-guava">The Spicy Sweetheart 🔥</span> */}
@@ -339,7 +339,7 @@ function App() {
               <div className="flavour-item" itemProp="itemListElement" itemScope itemType="https://schema.org/Product">
                 <div className="flavour-visual">
                   <div className="liquid-splash brown-splash"></div>
-                  <img src="assets/images/jeera + char png.png" alt="FIZZ POP Masala Jeera Soda - Traditional Cumin Spiced Fizz" className="bottle-img" loading="lazy" itemProp="image" />
+                  <img src="assets/images/jeera char png.png" alt="FIZZ POP Masala Jeera Soda - Traditional Cumin Spiced Fizz" className="bottle-img" loading="lazy" itemProp="image" />
                 </div>
                 <div className="flavour-info">
                   {/* <span className="flavour-tag tagline-jeera">The Desi Rockstar</span> */}
@@ -354,7 +354,7 @@ function App() {
               <div className="flavour-item reverse" itemProp="itemListElement" itemScope itemType="https://schema.org/Product">
                 <div className="flavour-visual">
                   <div className="liquid-splash mint-splash"></div>
-                  <img src="assets/images/fruitbeer + char png.png" alt="FIZZ POP Fruit Beer Soda - Refreshing Fruit Flavored Fizz" className="bottle-img" loading="lazy" itemProp="image" />
+                  <img src="assets/images/fruitbeer char png.png" alt="FIZZ POP Fruit Beer Soda - Refreshing Fruit Flavored Fizz" className="bottle-img" loading="lazy" itemProp="image" />
                 </div>
                 <div className="flavour-info">
                   {/* <span className="flavour-tag tagline-mojito">The Cool Explorer</span> */}
@@ -369,7 +369,7 @@ function App() {
               <div className="flavour-item" itemProp="itemListElement" itemScope itemType="https://schema.org/Product">
                 <div className="flavour-visual">
                   <div className="liquid-splash blue-splash"></div>
-                  <img src="assets/images/blueberry + char png.png" alt="FIZZ POP Berry Tingle Blueberry Soda - Modern Indian Fruit Fizz" className="bottle-img" loading="lazy" itemProp="image" />
+                  <img src="assets/images/blueberry char png.png" alt="FIZZ POP Berry Tingle Blueberry Soda - Modern Indian Fruit Fizz" className="bottle-img" loading="lazy" itemProp="image" />
                 </div>
                 <div className="flavour-info">
                   {/* <span className="flavour-tag tagline-blueberry">The GenZ Favourite</span> */}
@@ -385,7 +385,7 @@ function App() {
                 <div className="flavour-visual">
                   <span className="badge badge-mango">Must Try</span>
                   <div className="liquid-splash green-splash"></div>
-                  <img src="assets/images/pudina + char png.png" alt="FIZZ POP Kacha Mango Soda - Nostalgic Raw Mango Flavoured Drink" className="bottle-img" loading="lazy" itemProp="image" />
+                  <img src="assets/images/pudina char png.png" alt="FIZZ POP Kacha Mango Soda - Nostalgic Raw Mango Flavoured Drink" className="bottle-img" loading="lazy" itemProp="image" />
                 </div>
                 <div className="flavour-info">
                   {/* <span className="flavour-tag tagline-mango">The Nostalgia Trip 🥭</span> */}
