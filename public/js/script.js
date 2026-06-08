@@ -13,19 +13,18 @@ window.addEventListener('hashchange', e => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    // REMOVE ANY BLOCKING OVERLAYS
-    document.documentElement.style.pointerEvents = 'auto';
-    document.body.style.pointerEvents = 'auto';
-    
-    // Check for any elements that might block clicks
-    const allElements = document.querySelectorAll('[style*="pointer-events: none"]');
-    allElements.forEach(el => {
-        if (!el.classList.contains('nav-links')) { // Don't modify nav-links default state
-            el.style.pointerEvents = 'auto';
-        }
-    });
+    // FORCE POINTER EVENTS ON EVERYTHING
+    setTimeout(() => {
+        document.documentElement.style.pointerEvents = 'auto';
+        document.body.style.pointerEvents = 'auto';
+        document.querySelectorAll('*').forEach(el => {
+            if (el.style.pointerEvents === 'none' && !el.classList.contains('nav-links')) {
+                el.style.pointerEvents = 'auto';
+            }
+        });
+    }, 100);
 
-    // ===== SIMPLE MOBILE MENU SLIDER =====
+    // ===== MOBILE MENU WITH MOUSE & TOUCH EVENTS =====
     console.log('🔧 Initializing mobile menu...');
     
     setTimeout(() => {
@@ -36,21 +35,19 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log('Mobile menu:', mobileMenu);
         
         if (menuButton && mobileMenu) {
-            // ULTRA SIMPLE - No event object manipulation
-            menuButton.onclick = function() {
-                console.log('⭐ MENU BUTTON CLICKED - TOGGLE MENU ⭐');
+            // Multiple event handlers to ensure we catch clicks
+            const toggleMenu = () => {
+                console.log('⭐ MENU BUTTON INTERACTION ⭐');
                 mobileMenu.classList.toggle('menu-open');
                 menuButton.classList.toggle('menu-open');
-                return false;
             };
             
-            // Also add a touchend handler for mobile
-            menuButton.ontouchend = function() {
-                console.log('📱 TOUCH EVENT ON MENU');
-                mobileMenu.classList.toggle('menu-open');
-                menuButton.classList.toggle('menu-open');
-                return false;
-            };
+            // All possible click/touch events
+            menuButton.onclick = toggleMenu;
+            menuButton.onmousedown = () => { console.log('mousedown'); toggleMenu(); };
+            menuButton.onmouseup = () => { console.log('mouseup'); };
+            menuButton.ontouchstart = () => { console.log('touchstart'); toggleMenu(); };
+            menuButton.ontouchend = toggleMenu;
 
             // Close menu when clicking links
             mobileMenu.querySelectorAll('a').forEach(link => {
@@ -60,11 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
             });
 
-            console.log('✅ Mobile menu initialized');
+            console.log('✅ Mobile menu initialized with multiple event handlers');
         } else {
             console.error('❌ Menu button or menu not found');
         }
-    }, 200);
+    }, 300);
     // --- 0. Configurable Flavours Media ---
     const FLAVOUR_MEDIA_SRC = "assets/images/Video_Generation_From_Prompt.mp4"; 
     const mediaContainer = document.getElementById('flavour-media-container');
