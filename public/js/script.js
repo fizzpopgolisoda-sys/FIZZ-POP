@@ -52,65 +52,59 @@ document.addEventListener("DOMContentLoaded", () => {
     }, "+=0.15");
 
     // --- 2. Navigation & Dropdowns ---
-    const navbar = document.getElementById('navbar');
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    
-    console.log('===== HAMBURGER DEBUG =====');
-    console.log('Hamburger element:', hamburger);
-    console.log('Nav links element:', navLinks);
-    console.log('Navbar element:', navbar);
+    console.log('🔍 Script starting - DOM ready status:', document.readyState);
 
-    // HAMBURGER MENU - REWRITTEN FROM SCRATCH
-    if (hamburger) {
-        // Simplified menu toggle function
-        function toggleMobileMenu() {
-            console.log('Toggle called - current state:', navLinks.classList.contains('active'));
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('is-active');
-            document.body.classList.toggle('mobile-menu-open');
+    // SIMPLE MENU TOGGLE - Fresh Implementation
+    setTimeout(() => {
+        const menuBtn = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-links');
+        const navbar = document.getElementById('navbar');
+
+        console.log('🔍 Menu elements found:');
+        console.log('  - Menu Button:', menuBtn ? '✅ FOUND' : '❌ NOT FOUND');
+        console.log('  - Nav Menu:', navMenu ? '✅ FOUND' : '❌ NOT FOUND');
+        console.log('  - Navbar:', navbar ? '✅ FOUND' : '❌ NOT FOUND');
+
+        if (!menuBtn || !navMenu) {
+            console.error('❌ Critical elements missing!');
+            return;
         }
 
-        // Direct click handler - no bubbling
-        hamburger.onclick = function(event) {
-            event.preventDefault();
-            event.stopImmediatePropagation();
-            console.log('HAMBURGER CLICKED!!!');
-            toggleMobileMenu();
-            return false;
-        };
+        // Simple menu toggle
+        menuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('✅ MENU BUTTON CLICKED - Toggling menu');
+            
+            navMenu.classList.toggle('active');
+            menuBtn.classList.toggle('is-active');
+            document.body.classList.toggle('mobile-menu-open');
+        });
 
-        console.log('✅ Hamburger onclick attached');
-    } else {
-        console.error('❌ HAMBURGER NOT FOUND');
-    }
-
-    // Close menu when clicking nav links
-    if (navLinks) {
-        const navLinksArray = Array.from(navLinks.querySelectorAll('a'));
-        navLinksArray.forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    hamburger.classList.remove('is-active');
-                    document.body.classList.remove('mobile-menu-open');
-                }
+        // Close when clicking a link
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('📍 Link clicked, closing menu');
+                navMenu.classList.remove('active');
+                menuBtn.classList.remove('is-active');
+                document.body.classList.remove('mobile-menu-open');
             });
         });
-    }
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (hamburger && navLinks && navLinks.classList.contains('active')) {
-            if (!navbar.contains(e.target)) {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('is-active');
+        // Close when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navbar.contains(e.target) && navMenu.classList.contains('active')) {
+                console.log('👆 Clicked outside, closing menu');
+                navMenu.classList.remove('active');
+                menuBtn.classList.remove('is-active');
                 document.body.classList.remove('mobile-menu-open');
-                console.log('Menu closed - clicked outside');
             }
-        }
-    }, true);
+        });
 
+        console.log('✅ Menu system initialized and ready');
+    }, 500);
+
+    // Dropdown toggle for mobile
     const dropdowns = document.querySelectorAll('.nav-dropdown');
 
     // Sticky nav toggle on scroll
