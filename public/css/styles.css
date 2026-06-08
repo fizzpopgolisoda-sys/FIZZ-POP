@@ -3088,8 +3088,25 @@ h4 {
     .footer-nav {
         gap: 10px;
     }
-}
 
-.js-ag-carousel {
-  padding: 50px 0;
+    /* CAROUSEL MOBILE OPTIMIZATION */
+    .js-ag-carousel {
+        padding: 20px 0;
+        gap: 15px;
+    }
+
+    .ag-carousel_item {
+        padding: 8px;
+    }
+
+    .ag-carousel_item picture {
+        width: 120px !important;
+        height: 120px !important;
+    }
+
+    .ag-carousel_item picture img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+    }
 }
