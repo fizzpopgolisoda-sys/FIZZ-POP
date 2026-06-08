@@ -173,6 +173,13 @@ h4 {
     object-fit: contain;
 }
 
+@media (max-width: 768px) {
+    .brand-img-loader {
+        height: 12rem;
+        width: auto;
+    }
+}
+
 .brand-img-nav {
     height: 80px;
     width: auto;
@@ -217,7 +224,12 @@ h4 {
     font-weight: normal;
     letter-spacing: 4px;
     animation: pulse 1.5s infinite;
+}
 
+@media (max-width: 768px) {
+    .loader-logo {
+        font-size: 3rem;
+    }
 }
 
 @keyframes pulse {
@@ -437,6 +449,14 @@ h4 {
     padding-bottom: 60px;
 }
 
+@media (max-width: 768px) {
+    .hero {
+        min-height: 80vh;
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+}
+
 .hero-interactive-container {
     width: 100%;
     display: flex;
@@ -454,6 +474,13 @@ h4 {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .interactive-image-wrapper {
+        width: 90vw;
+        max-width: 100%;
+    }
 }
 
 .pressure-image {
@@ -815,6 +842,15 @@ h4 {
     gap: 60px;
 }
 
+@media (max-width: 768px) {
+    .flavour-item {
+        margin-bottom: 5px;
+        gap: 20px;
+        min-height: auto !important;
+        padding: 40px 0 !important;
+    }
+}
+
 .flavour-item.reverse {
     flex-direction: row-reverse;
 }
@@ -828,6 +864,13 @@ h4 {
     align-items: center;
     background-color: transparent;
     transition: var(--transition);
+}
+
+@media (max-width: 768px) {
+    .flavour-visual {
+        width: 280px;
+        height: 380px;
+    }
 }
 
 .flavour-item:hover .flavour-visual {
@@ -870,6 +913,12 @@ h4 {
     position: relative;
     filter: drop-shadow(0 0 35px rgba(255, 255, 255, 0.75)) drop-shadow(15px 25px 30px rgba(0, 0, 0, 0.25));
     transition: filter 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .bottle-img {
+        height: 300px;
+    }
 }
 
 .flavour-item:hover .bottle-img {
