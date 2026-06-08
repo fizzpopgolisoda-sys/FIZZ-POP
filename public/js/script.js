@@ -24,10 +24,17 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log('Mobile menu:', mobileMenu);
         
         if (menuButton && mobileMenu) {
-            menuButton.onclick = function(e) {
-                e.preventDefault();
-                e.stopPropagation();
+            // ULTRA SIMPLE - No event object manipulation
+            menuButton.onclick = function() {
                 console.log('⭐ MENU BUTTON CLICKED - TOGGLE MENU ⭐');
+                mobileMenu.classList.toggle('menu-open');
+                menuButton.classList.toggle('menu-open');
+                return false;
+            };
+            
+            // Also add a touchend handler for mobile
+            menuButton.ontouchend = function() {
+                console.log('📱 TOUCH EVENT ON MENU');
                 mobileMenu.classList.toggle('menu-open');
                 menuButton.classList.toggle('menu-open');
                 return false;

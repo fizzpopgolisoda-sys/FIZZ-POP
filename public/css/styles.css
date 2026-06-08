@@ -39,9 +39,15 @@
     --radius: 16px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
+/* CRITICAL: Ensure button is always clickable */
+html, body {
+    pointer-events: auto;
+}
+
+.hamburger {
+    pointer-events: auto !important;
+    z-index: 10000 !important;
+}
     box-sizing: border-box;
 }
 
@@ -458,9 +464,19 @@ h4 {
     position: relative;
 }
 
-/* ==========================================
-   MOBILE MENU SLIDER - SIMPLE VERSION
-   ========================================== */
+/* Modal should not block interaction with nav */
+.modal-content, #distributorsModal {
+    pointer-events: auto;
+}
+
+#distributorsModal {
+    display: none;
+    pointer-events: none;
+}
+
+#distributorsModal.show {
+    pointer-events: auto;
+}
 
 .nav-links.menu-open {
     opacity: 1 !important;
