@@ -199,17 +199,13 @@ function App() {
       
       if (menuButton && mobileMenu) {
         const toggleMenu = () => {
-          console.log('⭐ MENU BUTTON INTERACTION ⭐');
+          console.log('⭐ MENU BUTTON CLICKED - TOGGLE ⭐');
           mobileMenu.classList.toggle('menu-open');
           menuButton.classList.toggle('menu-open');
         };
         
-        // Multiple event handlers
+        // Only use onclick - fires after complete click/tap interaction
         menuButton.onclick = toggleMenu;
-        menuButton.onmousedown = () => { console.log('mousedown'); toggleMenu(); };
-        menuButton.onmouseup = () => { console.log('mouseup'); };
-        menuButton.ontouchstart = () => { console.log('touchstart'); toggleMenu(); };
-        menuButton.ontouchend = toggleMenu;
 
         // Close menu when clicking links
         mobileMenu.querySelectorAll('a').forEach(link => {
