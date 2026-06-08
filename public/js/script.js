@@ -13,6 +13,39 @@ window.addEventListener('hashchange', e => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+    // ===== SIMPLE MOBILE MENU SLIDER =====
+    console.log('🔧 Initializing mobile menu...');
+    
+    setTimeout(() => {
+        const menuButton = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.nav-links');
+        
+        console.log('Menu button:', menuButton);
+        console.log('Mobile menu:', mobileMenu);
+        
+        if (menuButton && mobileMenu) {
+            menuButton.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('⭐ MENU BUTTON CLICKED - TOGGLE MENU ⭐');
+                mobileMenu.classList.toggle('menu-open');
+                menuButton.classList.toggle('menu-open');
+                return false;
+            };
+
+            // Close menu when clicking links
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.onclick = function() {
+                    mobileMenu.classList.remove('menu-open');
+                    menuButton.classList.remove('menu-open');
+                };
+            });
+
+            console.log('✅ Mobile menu initialized');
+        } else {
+            console.error('❌ Menu button or menu not found');
+        }
+    }, 200);
     // --- 0. Configurable Flavours Media ---
     const FLAVOUR_MEDIA_SRC = "assets/images/Video_Generation_From_Prompt.mp4"; 
     const mediaContainer = document.getElementById('flavour-media-container');
