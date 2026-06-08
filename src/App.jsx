@@ -172,6 +172,51 @@ function App() {
     });
   }, []);
 
+  // ===== MOBILE MENU BUTTON CLICK HANDLER =====
+  useEffect(() => {
+    // Force pointer events on everything
+    setTimeout(() => {
+      document.documentElement.style.pointerEvents = 'auto';
+      document.body.style.pointerEvents = 'auto';
+      document.querySelectorAll('*').forEach(el => {
+        if (el.style.pointerEvents === 'none' && !el.classList.contains('nav-links')) {
+          el.style.pointerEvents = 'auto';
+        }
+      });
+    }, 100);
+
+    // Attach menu button handlers
+    setTimeout(() => {
+      const menuButton = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.nav-links');
+      
+      if (menuButton && mobileMenu) {
+        const toggleMenu = () => {
+          console.log('⭐ MENU BUTTON INTERACTION ⭐');
+          mobileMenu.classList.toggle('menu-open');
+          menuButton.classList.toggle('menu-open');
+        };
+        
+        // Multiple event handlers
+        menuButton.onclick = toggleMenu;
+        menuButton.onmousedown = () => { console.log('mousedown'); toggleMenu(); };
+        menuButton.onmouseup = () => { console.log('mouseup'); };
+        menuButton.ontouchstart = () => { console.log('touchstart'); toggleMenu(); };
+        menuButton.ontouchend = toggleMenu;
+
+        // Close menu when clicking links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.onclick = function() {
+            mobileMenu.classList.remove('menu-open');
+            menuButton.classList.remove('menu-open');
+          };
+        });
+
+        console.log('✅ Mobile menu initialized');
+      }
+    }, 300);
+  }, []);
+
   return (
     <>
       <div id="loader" ref={loaderRef} className="loader">
