@@ -451,7 +451,15 @@ h4 {
 
 @media (max-width: 768px) {
     .hero {
-        min-height: 80vh;
+        min-height: 90vh;
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 100vh;
         padding-top: 100px;
         padding-bottom: 40px;
     }
@@ -2353,6 +2361,12 @@ h4 {
         border-radius: 12px; /* Less rounded to fit two columns */
         height: 100%;
         min-height: 50px;
+    }
+
+    .sell-pill:nth-child(5) {
+        grid-column: 1 / -1;
+        width: 50%;
+        margin: 0 auto;
     }
 }
 
