@@ -77,22 +77,29 @@ document.addEventListener("DOMContentLoaded", () => {
         hamburger.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
+            console.log('Hamburger clicked'); // Debug log
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('is-active');
             document.body.classList.toggle('mobile-menu-open');
             const spans = hamburger.querySelectorAll('span');
+            console.log('Spans found:', spans.length); // Debug log
             if (navLinks.classList.contains('active')) {
                 spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
                 spans[1].style.opacity = '0';
                 spans[2].style.transform = 'rotate(-45deg) translate(7px, -7px)';
+                console.log('Menu opened'); // Debug log
             } else {
                 spans[0].style.transform = 'none';
                 spans[1].style.opacity = '1';
                 spans[2].style.transform = 'none';
+                console.log('Menu closed'); // Debug log
             }
         });
+        console.log('Hamburger event listener attached'); // Debug log
     } else {
-        console.warn('Hamburger or navLinks element not found');
+        console.error('Hamburger or navLinks element not found');
+        console.error('Hamburger:', hamburger);
+        console.error('NavLinks:', navLinks);
     }
 
     // Dropdown toggle for mobile
@@ -124,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function closeMobileMenu() {
         navLinks.classList.remove('active');
+        hamburger.classList.remove('is-active');
         document.body.classList.remove('mobile-menu-open');
         const spans = hamburger.querySelectorAll('span');
         spans[0].style.transform = 'none';
