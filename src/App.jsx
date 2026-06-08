@@ -7,6 +7,10 @@ function App() {
   const navbarRef = useRef(null);
 
   useEffect(() => {
+    // FORCE POINTER EVENTS FROM THE START
+    document.documentElement.style.pointerEvents = 'auto';
+    document.body.style.pointerEvents = 'auto';
+    
     // Loader animation: slide up and hide
     const loaderTl = gsap.timeline();
     loaderTl.to(loaderRef.current, {
@@ -20,6 +24,9 @@ function App() {
         }
         // Remove the is-loading class from body
         document.body.classList.remove('is-loading');
+        // RESTORE POINTER EVENTS AFTER LOADER
+        document.documentElement.style.pointerEvents = 'auto';
+        document.body.style.pointerEvents = 'auto';
       }
     });
   }, []);
