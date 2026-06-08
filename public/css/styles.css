@@ -39,14 +39,38 @@
     --radius: 16px;
 }
 
-/* CRITICAL: Ensure button is always clickable */
-html, body {
-    pointer-events: auto;
+/* ULTRA AGGRESSIVE: ENSURE BUTTON IS CLICKABLE */
+* {
+    /* Reset any pointer blocking */
+}
+
+html {
+    pointer-events: auto !important;
+}
+
+body {
+    pointer-events: auto !important;
+}
+
+.navbar {
+    pointer-events: auto !important;
+}
+
+.mobile-nav-group {
+    pointer-events: auto !important;
+    z-index: 10000 !important;
 }
 
 .hamburger {
     pointer-events: auto !important;
-    z-index: 10000 !important;
+    z-index: 10001 !important;
+    cursor: pointer !important;
+}
+
+.hamburger:hover,
+.hamburger:focus,
+.hamburger:active {
+    pointer-events: auto !important;
 }
     box-sizing: border-box;
 }

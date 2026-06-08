@@ -13,6 +13,18 @@ window.addEventListener('hashchange', e => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+    // REMOVE ANY BLOCKING OVERLAYS
+    document.documentElement.style.pointerEvents = 'auto';
+    document.body.style.pointerEvents = 'auto';
+    
+    // Check for any elements that might block clicks
+    const allElements = document.querySelectorAll('[style*="pointer-events: none"]');
+    allElements.forEach(el => {
+        if (!el.classList.contains('nav-links')) { // Don't modify nav-links default state
+            el.style.pointerEvents = 'auto';
+        }
+    });
+
     // ===== SIMPLE MOBILE MENU SLIDER =====
     console.log('🔧 Initializing mobile menu...');
     
