@@ -1912,6 +1912,18 @@ h4 {
     margin-top: 2px;
 }
 
+@media (max-width: 768px) {
+    .footer-social {
+        margin-left: 0;
+        margin-right: 0;
+        justify-content: center;
+        display: flex;
+        gap: 25px;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}
+
 .footer-credits {
     margin-top: 10px;
     font-size: 0.85rem;

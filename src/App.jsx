@@ -208,7 +208,7 @@ function App() {
             </a>
           </nav>
           <div className="mobile-nav-group">
-            <a href="https://wa.me/919717698682?text=Hello%2C%20I%E2%80%99m%20interested%20in%20discussing%20the%20Tingly%20distributorship%20and%20would%20like%20to%20connect%20with%20you." target="_blank" className="nav-whatsapp-mobile" aria-label="Chat on WhatsApp" rel="noreferrer noopener">
+            <a href="https://wa.me/917037228868?text=Hello%2C%20I%E2%80%99m%20interested%20in%20discussing%20the%20Tingly%20distributorship%20and%20would%20like%20to%20connect%20with%20you." target="_blank" className="nav-whatsapp-mobile" aria-label="Chat on WhatsApp" rel="noreferrer noopener">
               <i className="fa-brands fa-whatsapp"></i>
             </a>
             <div className="hamburger">
