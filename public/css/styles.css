@@ -427,25 +427,32 @@ h4 {
     gap: 6px;
     z-index: 1002;
     position: relative;
-    padding: 10px;
-    border-radius: 4px;
+    padding: 12px;
+    border-radius: 6px;
     transition: all 0.3s ease;
     pointer-events: auto;
     background: transparent;
     border: none;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.hamburger:active {
-    transform: scale(0.95);
+.hamburger:active,
+.hamburger:focus {
+    background-color: rgba(0, 0, 0, 0.05);
+    outline: none;
 }
 
 .hamburger span {
-    width: 30px;
+    width: 28px;
     height: 3px;
     background-color: var(--clr-brand-primary);
     border-radius: 3px;
     transition: all 0.3s ease;
     display: block;
+    position: relative;
 }
 
 /* ========================

@@ -211,11 +211,11 @@ function App() {
             <a href="https://wa.me/917037228868?text=Hello%2C%20I%E2%80%99m%20interested%20in%20discussing%20the%20FizzPOP%20distributorship%20and%20would%20like%20to%20connect%20with%20you." target="_blank" className="nav-whatsapp-mobile" aria-label="Chat on WhatsApp" rel="noreferrer noopener">
               <i className="fa-brands fa-whatsapp"></i>
             </a>
-            <div className="hamburger">
+            <button className="hamburger" aria-label="Toggle mobile menu" type="button">
               <span></span>
               <span></span>
               <span></span>
-            </div>
+            </button>
           </div>
         </div>
       </header>
