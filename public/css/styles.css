@@ -72,8 +72,6 @@ body {
 .hamburger:active {
     pointer-events: auto !important;
 }
-    box-sizing: border-box;
-}
 
 html {
     scroll-behavior: smooth;
