@@ -111,6 +111,15 @@ body {
     visibility: hidden;
 }
 
+/* Force visible for new banner hero and nav when stale loading class remains */
+.is-loading .navbar,
+.is-loading .hero-banner-section,
+.is-loading .hero-banner-media,
+.is-loading .hero-banner-media img {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
 .is-loading {
     overflow: hidden;
 }
