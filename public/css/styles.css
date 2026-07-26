@@ -1864,8 +1864,9 @@ h4 {
 .js-ag-carousel {
     padding: 30px 0;
     display: flex;
-    gap: 40px;
+    gap: 30px;
     justify-content: center;
+    align-items: stretch;
     flex-wrap: wrap;
     width: 100%;
 }
@@ -1873,34 +1874,38 @@ h4 {
 .ag-carousel_item {
     flex: 0 0 auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 15px;
+    justify-content: flex-start;
+    gap: 18px;
+    padding: 18px;
+    min-width: 220px;
+    max-width: 260px;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 18px 45px rgba(29, 99, 255, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ag-carousel_item:hover {
+    transform: translateY(-6px);
 }
 
 .ag-carousel_item picture {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
+    width: 100%;
+    height: 0;
+    padding-bottom: 120%;
+    border-radius: 24px;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--clr-brand-primary) 0%, var(--clr-brand-secondary) 100%);
-    box-shadow: 0 10px 35px rgba(29, 99, 255, 0.2);
-    transition: var(--transition);
-}
-
-.ag-carousel_item picture:hover {
-    transform: scale(1.1) translateY(-8px);
-    box-shadow: 0 15px 50px rgba(29, 99, 255, 0.35);
+    background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(236,241,255,0.95) 100%);
+    box-shadow: inset 0 0 0 1px rgba(29, 99, 255, 0.08);
 }
 
 .ag-carousel_item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 24px;
 }
 
 /* Slick Carousel Customization */
@@ -3282,24 +3287,28 @@ h4 {
         gap: 10px;
     }
 
-    /* CAROUSEL MOBILE OPTIMIZATION */
+    .hero-banner-section {
+        padding-top: calc(120px + 18px);
+        padding-bottom: 18px;
+    }
+
+    .hero-banner-media img {
+        max-width: 100%;
+        border-radius: 0;
+    }
+
     .js-ag-carousel {
         padding: 20px 0;
-        gap: 15px;
+        gap: 18px;
     }
 
     .ag-carousel_item {
-        padding: 8px;
+        padding: 14px;
+        min-width: 180px;
+        max-width: 220px;
     }
 
     .ag-carousel_item picture {
-        width: 120px !important;
-        height: 120px !important;
-    }
-
-    .ag-carousel_item picture img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover;
+        padding-bottom: 120%;
     }
 }
