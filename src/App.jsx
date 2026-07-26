@@ -175,27 +175,8 @@ function App() {
 
       <main>
         <section id="hero" className="hero-banner-section">
-          <div className="container hero-banner-grid">
-            <div className="hero-banner-copy">
-              <span className="hero-banner-pill">Authentic Goli Soda</span>
-              <h1>Relive the bold, nostalgic taste of FIZZ POP.</h1>
-              <p>Premium flavoured soda made for modern India, with the classic charm of traditional Goli Soda.</p>
-              <div className="hero-banner-actions">
-                <a href="#flavours" className="btn btn-primary">Explore Flavours</a>
-                <a href="#contact" className="btn btn-secondary">Contact Us</a>
-              </div>
-            </div>
-            <div className="hero-banner-media">
-              <img src="/assets/images/banner.png" alt="FIZZ POP Goli Soda banner" />
-            </div>
-          </div>
-        </section>
-
-        <section className="promo-banner-section">
-          <div className="container">
-            <div className="promo-banner-card">
-              <img src="/assets/images/banner.png" alt="FIZZ POP premium soda banner" />
-            </div>
+          <div className="container hero-banner-media">
+            <img src="/assets/images/banner.png" alt="FIZZ POP Goli Soda banner" />
           </div>
         </section>
 
