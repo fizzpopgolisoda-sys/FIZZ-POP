@@ -3291,6 +3291,16 @@ h4 {
         gap: 10px;
     }
 
+    .sells-best-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .sell-pill {
+        font-size: 0.8rem;
+        padding: 12px 12px;
+    }
+
     .hero-banner-section {
         padding-top: calc(120px + 18px);
         padding-bottom: 18px;
