@@ -2594,7 +2594,7 @@ h4 {
 
 @media (max-width: 768px) {
     .sells-best-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 8px;
     }
 }
