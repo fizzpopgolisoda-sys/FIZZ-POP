@@ -5,6 +5,8 @@ function App() {
   const navbarRef = useRef(null);
 
   useEffect(() => {
+    document.body.classList.remove('is-loading');
+    
     // Navbar scroll animation - show logo when scrolling down
     const handleScroll = () => {
       const navbar = navbarRef.current;
