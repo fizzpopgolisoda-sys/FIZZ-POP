@@ -230,8 +230,113 @@ h4 {
 }
 
 /* ========================
-   LOADING SCREEN
+   HERO / BANNER SECTION
    ======================== */
+.hero-banner-section {
+    padding: 110px 0 40px;
+    background: linear-gradient(135deg, #fdf8e7 0%, #f5f7ff 100%);
+}
+
+.hero-banner-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-banner-copy h1 {
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    line-height: 1.08;
+    margin: 0 0 16px;
+    color: var(--clr-brand-primary);
+}
+
+.hero-banner-copy p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #44546a;
+    margin: 0 0 24px;
+    max-width: 560px;
+}
+
+.hero-banner-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(29, 99, 255, 0.1);
+    color: var(--clr-brand-primary);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.hero-banner-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.hero-banner-media img,
+.promo-banner-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(29, 99, 255, 0.12);
+}
+
+.promo-banner-section {
+    padding: 10px 0 60px;
+}
+
+.promo-banner-card {
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+@media (max-width: 900px) {
+    .hero-banner-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .hero-banner-copy {
+        order: 2;
+    }
+
+    .hero-banner-media {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-banner-section {
+        padding: 90px 0 24px;
+    }
+
+    .hero-banner-copy h1 {
+        font-size: 2rem;
+    }
+
+    .hero-banner-copy p {
+        font-size: 0.96rem;
+    }
+
+    .hero-banner-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-banner-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 .loader {
     position: fixed;
     top: 0;

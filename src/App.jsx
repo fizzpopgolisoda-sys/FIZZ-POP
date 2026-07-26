@@ -1,35 +1,8 @@
 ﻿import '/public/css/styles.css';
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
 
 function App() {
-  const loaderRef = useRef(null);
   const navbarRef = useRef(null);
-
-  useEffect(() => {
-    // FORCE POINTER EVENTS FROM THE START
-    document.documentElement.style.pointerEvents = 'auto';
-    document.body.style.pointerEvents = 'auto';
-    
-    // Loader animation: slide up and hide
-    const loaderTl = gsap.timeline();
-    loaderTl.to(loaderRef.current, {
-      yPercent: -100,
-      delay: 1.25,
-      duration: 0.8,
-      ease: "power4.inOut",
-      onComplete: () => {
-        if (loaderRef.current) {
-          loaderRef.current.style.display = 'none';
-        }
-        // Remove the is-loading class from body
-        document.body.classList.remove('is-loading');
-        // RESTORE POINTER EVENTS AFTER LOADER
-        document.documentElement.style.pointerEvents = 'auto';
-        document.body.style.pointerEvents = 'auto';
-      }
-    });
-  }, []);
 
   useEffect(() => {
     // Navbar scroll animation - show logo when scrolling down
@@ -99,70 +72,6 @@ function App() {
     }
   }, []);
 
-  // Interactive 3D pressure deformation effect on hero image
-  useEffect(() => {
-    const imageWrapper = document.getElementById('interactiveImage');
-    const pressureImage = imageWrapper?.querySelector('.pressure-image');
-    
-    if (!imageWrapper || !pressureImage) return;
-    
-    // Enable 3D perspective
-    imageWrapper.style.perspective = '1000px';
-    imageWrapper.style.transformStyle = 'preserve-3d';
-    pressureImage.style.transformStyle = 'preserve-3d';
-
-    const handleMouseMove = (e) => {
-      const rect = imageWrapper.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      // Calculate angle for 3D rotation - INVERTED so hovered part goes BACK
-      const rotateX = -((y - centerY) / centerY) * 12;  // Negative to push away
-      const rotateY = -((centerX - x) / centerX) * 12;  // Negative to push away
-      
-      // Calculate distance from center for intensity
-      const distX = x - centerX;
-      const distY = y - centerY;
-      const distance = Math.sqrt(distX * distX + distY * distY);
-      const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY);
-      const intensity = Math.max(0, 1 - distance / (maxDistance * 0.8));
-      
-      // Apply 3D transform - hovered part pushes BACK, opposite comes forward
-      pressureImage.style.transform = `
-        rotateX(${rotateX}deg) 
-        rotateY(${rotateY}deg) 
-        scale(${1 + intensity * 0.08})
-      `;
-      
-      // Enhanced shadow following the deformation
-      const shadowX = -rotateY * 3;
-      const shadowY = -rotateX * 3;
-      const shadowBlur = 40 + intensity * 60;
-      pressureImage.style.boxShadow = `
-        ${shadowX}px ${30 + shadowY}px ${shadowBlur}px rgba(0, 0, 0, ${0.25 + intensity * 0.35})
-      `;
-      
-      // Subtle brightness change on press
-      pressureImage.style.filter = `brightness(${1 - intensity * 0.06})`;
-    };
-
-    const handleMouseLeave = () => {
-      pressureImage.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-      pressureImage.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.2)';
-      pressureImage.style.filter = 'brightness(1)';
-    };
-
-    imageWrapper.addEventListener('mousemove', handleMouseMove);
-    imageWrapper.addEventListener('mouseleave', handleMouseLeave);
-
-    return () => {
-      imageWrapper.removeEventListener('mousemove', handleMouseMove);
-      imageWrapper.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, []);
-
   // Features carousel infinite scroll duplication
   useEffect(() => {
     const carousel = document.querySelector('.features-carousel');
@@ -222,10 +131,6 @@ function App() {
 
   return (
     <>
-      <div id="loader" ref={loaderRef} className="loader">
-        <h1 className="loader-logo"><img src="assets/images/FizzPop LOGO.png" alt="FIZZPOP" className="brand-img-loader" /></h1>
-      </div>
-
       <header className="navbar" id="navbar" ref={navbarRef}>
         <div className="container nav-container">
           <a href="#hero" className="logo">
@@ -269,12 +174,27 @@ function App() {
       </header>
 
       <main>
-        <section id="hero" className="hero">
-          <div className="hero-bg-texture"></div>
-          <div className="hero-interactive-container">
-            <div className="interactive-image-wrapper" id="interactiveImage">
-              <img src="/assets/images/hero image.png" alt="FIZZ POP Goli Soda - The Best Indian Banta Brand" className="pressure-image" />
-              <div className="pressure-overlay" id="pressureOverlay"></div>
+        <section id="hero" className="hero-banner-section">
+          <div className="container hero-banner-grid">
+            <div className="hero-banner-copy">
+              <span className="hero-banner-pill">Authentic Goli Soda</span>
+              <h1>Relive the bold, nostalgic taste of FIZZ POP.</h1>
+              <p>Premium flavoured soda made for modern India, with the classic charm of traditional Goli Soda.</p>
+              <div className="hero-banner-actions">
+                <a href="#flavours" className="btn btn-primary">Explore Flavours</a>
+                <a href="#contact" className="btn btn-secondary">Contact Us</a>
+              </div>
+            </div>
+            <div className="hero-banner-media">
+              <img src="/assets/images/banner.png" alt="FIZZ POP Goli Soda banner" />
+            </div>
+          </div>
+        </section>
+
+        <section className="promo-banner-section">
+          <div className="container">
+            <div className="promo-banner-card">
+              <img src="/assets/images/banner.png" alt="FIZZ POP premium soda banner" />
             </div>
           </div>
         </section>
