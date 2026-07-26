@@ -274,7 +274,9 @@ h4 {
 
 @media (max-width: 1024px) {
     .hero-banner-section {
-        padding: 30px 0 20px;
+        /* keep the navbar offset on tablet */
+        padding-top: calc(var(--navbar-height) + 12px);
+        padding-bottom: 12px;
     }
 }
 
