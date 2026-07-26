@@ -37,6 +37,8 @@
     --shadow-soft: 0 10px 30px rgba(29, 99, 255, 0.08);
     --shadow-hard: 8px 8px 0px rgba(29, 99, 255, 0.15);
     --radius: 16px;
+    /* Navbar height used to offset the hero so it doesn't sit under the fixed nav */
+    --navbar-height: 80px;
 }
 
 /* ULTRA AGGRESSIVE: ENSURE BUTTON IS CLICKABLE */
@@ -242,8 +244,9 @@ h4 {
    HERO / BANNER SECTION
    ======================== */
 .hero-banner-section {
-    /* small vertical spacing only; banner will be full-bleed */
-    padding: 12px 0; /* small top/bottom margin */
+    /* offset the fixed navbar so the banner starts below it */
+    padding-top: calc(var(--navbar-height) + 12px);
+    padding-bottom: 12px;
     background: #f8f9fb;
     overflow: visible;
 }
@@ -276,9 +279,11 @@ h4 {
 }
 
 @media (max-width: 768px) {
+    :root { --navbar-height: 64px; }
+
     .hero-banner-section {
-        /* small vertical spacing only; banner will be full-bleed */
-        padding: 12px 0; /* small top/bottom margin */
+        padding-top: calc(var(--navbar-height) + 12px);
+        padding-bottom: 12px;
         background: #f8f9fb;
         overflow: visible;
     }
@@ -401,6 +406,9 @@ h4 {
     background-color: rgba(248, 249, 251, 0.95);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
 }
 
 .navbar.scrolled,
