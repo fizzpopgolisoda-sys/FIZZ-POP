@@ -227,8 +227,7 @@ function App() {
         <section className="carousel-section py-section">
           <div className="container">
             <div className="section-header text-center">
-              <h2 className="title">Mascots</h2>
-              <p className="subtitle">Our animated mascots, now in vertical cards with motion.</p>
+              <h2 className="title">Our Mascots</h2>
             </div>
             <div className="js-ag-carousel">
   <div className="ag-carousel_item">
