@@ -7,6 +7,38 @@ function App() {
   useEffect(() => {
     document.body.classList.remove('is-loading');
     
+    // Inject runtime CSS overrides to ensure the hero banner is full-bleed
+    // and has no rounded corners (important to override bundled CSS).
+    try {
+      const css = `
+        .hero-banner-section { padding: 12px 0 !important; }
+        .hero-banner-section > .container.hero-banner-media { max-width: none !important; width: 100% !important; padding: 0 !important; }
+        .hero-banner-media { display: block !important; }
+        .hero-banner-media img { width: 100% !important; max-width: 100% !important; height: auto !important; display: block !important; border-radius: 0 !important; box-shadow: none !important; margin: 0 auto !important; }
+      `;
+      const styleEl = document.createElement('style');
+      styleEl.setAttribute('data-injected', 'hero-override');
+      styleEl.appendChild(document.createTextNode(css));
+      document.head.appendChild(styleEl);
+    } catch (e) {
+      // silent fail; fallback to stylesheet edits already made
+      console.warn('Could not inject hero override CSS', e);
+    }
+
+    // Also force inline styles on the hero image after mount to guarantee
+    // it overrides any bundled CSS that may load later.
+    setTimeout(() => {
+      const heroImg = document.querySelector('.hero-banner-media img');
+      if (heroImg) {
+        heroImg.style.borderRadius = '0px';
+        heroImg.style.width = '100%';
+        heroImg.style.maxWidth = '100%';
+        heroImg.style.display = 'block';
+        heroImg.style.boxShadow = 'none';
+        heroImg.style.margin = '0 auto';
+      }
+    }, 250);
+    
     // Navbar scroll animation - show logo when scrolling down
     const handleScroll = () => {
       const navbar = navbarRef.current;
@@ -519,7 +551,7 @@ function App() {
               <h2>Get Fizzy With Us!🍾✨</h2>
               <p>Whether you wanna stock FizzPop, share feedback, ya bas bolna ho “Bhai kya swaad hai!” 😎</p>
               <div className="contact-details">
-                <p><strong>📞 Phone:</strong> <br /> <a href="https://wa.me/7037228868?text=Hello%2C%20I%E2%80%99m%20interested%20in%20discussing%20the%20Tingly%20distributorship%20and%20would%20like%20to%20connect%20with%20you." target="_blank" style={{ textDecoration: 'none', color: 'inherit' }} rel="noreferrer noopener">+91 7037228868</a> (WhatsApp) <br /> +91 7351555567 </p>
+                <p><strong>📞 Phone:</strong> <br /> <a href="https://wa.me/7037228868?text=Hello%2C%20I%E2%80%99m%20interested%20in%20discussing%20the%20FizzPop%20distributorship%20and%20would%20like%20to%20connect%20with%20you." target="_blank" style={{ textDecoration: 'none', color: 'inherit' }} rel="noreferrer noopener">+91 7037228868</a> (WhatsApp) <br /> +91 7351555567 </p>
                 <p><strong>✉️ Email:</strong> <br /> Fizzpopgolisoda@gmail.com</p>
               </div>
             </div>
@@ -582,7 +614,7 @@ function App() {
         <span className="btn-text">Hear the Goli Pop!</span>
       </button>
 
-      <a href="https://wa.me/919717698682?text=Hello%2C%20I%E2%80%99m%20interested%20in%20discussing%20the%20Tingly%20distributorship%20and%20would%20like%20to%20connect%20with%20you." target="_blank" id="whatsappChatBtn" className="whatsapp-btn" data-tooltip="Chat with us on WhatsApp!" rel="noreferrer noopener">
+      <a href="https://wa.me/919717698682?text=Hello%2C%20I%E2%80%99m%20interested%20in%20discussing%20the%20FizzPop%20distributorship%20and%20would%20like%20to%20connect%20with%20you." target="_blank" id="whatsappChatBtn" className="whatsapp-btn" data-tooltip="Chat with us on WhatsApp!" rel="noreferrer noopener">
         <span className="btn-icon"><i className="fa-brands fa-whatsapp"></i></span>
         <span className="btn-text">WhatsApp Us</span>
       </a>
