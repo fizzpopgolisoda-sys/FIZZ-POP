@@ -281,7 +281,7 @@ h4 {
 }
 
 @media (max-width: 768px) {
-    :root { --navbar-height: 64px; }
+    :root { --navbar-height: 120px; }
 
     .hero-banner-section {
         padding-top: calc(var(--navbar-height) + 12px);
@@ -310,9 +310,6 @@ h4 {
         /* ensure the image fills the viewport horizontally without extra gaps */
         max-width: 100%;
     }
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
 }
 
 /* Mobile navigation: show hamburger and mobile group, hide desktop links by default */
