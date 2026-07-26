@@ -27,7 +27,12 @@ function App() {
 
     // Also force inline styles on the hero image after mount to guarantee
     // it overrides any bundled CSS that may load later.
-    setTimeout(() => {
+    const adjustHeroOffset = () => {
+      const heroSection = document.querySelector('.hero-banner-section');
+      const navbar = document.querySelector('.navbar');
+      if (heroSection && navbar) {
+        heroSection.style.paddingTop = `${navbar.offsetHeight + 12}px`;
+      }
       const heroImg = document.querySelector('.hero-banner-media img');
       if (heroImg) {
         heroImg.style.borderRadius = '0px';
@@ -37,7 +42,9 @@ function App() {
         heroImg.style.boxShadow = 'none';
         heroImg.style.margin = '0 auto';
       }
-    }, 250);
+    };
+    adjustHeroOffset();
+    window.addEventListener('resize', adjustHeroOffset);
     
     // Navbar scroll animation - show logo when scrolling down
     const handleScroll = () => {
@@ -52,7 +59,10 @@ function App() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', adjustHeroOffset);
+    };
   }, []);
 
   // Initialize Slick Carousel
@@ -216,7 +226,10 @@ function App() {
 
         <section className="carousel-section py-section">
           <div className="container">
-            {/* <h3 className="text-center" style={{ marginBottom: '30px', fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--clr-brand-primary)' }}>Our Flavours</h3> */}
+            <div className="section-header text-center">
+              <h2 className="title">Mascots</h2>
+              <p className="subtitle">Our animated mascots, now in vertical cards with motion.</p>
+            </div>
             <div className="js-ag-carousel">
   <div className="ag-carousel_item">
     <picture>
